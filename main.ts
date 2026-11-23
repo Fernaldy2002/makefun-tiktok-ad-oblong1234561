@@ -7,7 +7,8 @@ import { join } from "node:path";
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 mkdirSync(outputDir, { recursive: true });
 
-const source = join(process.cwd(), "VIDEO.json");
+const botDir = process.env.MAKEFUN_BOT_DIR || process.cwd();
+const source = join(botDir, "VIDEO.json");
 const destination = join(outputDir, "VIDEO.json");
 
 const parsed = JSON.parse(readFileSync(source, "utf8"));
